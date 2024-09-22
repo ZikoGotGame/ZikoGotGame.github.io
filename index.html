@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Zac Tawfick</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="lg.png">
+  <script src="https://kit.fontawesome.com/cc71902da6.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div id="header">
+  <nav class="nav2">
+    <img src="logo.png" class="logo">
+    <ul id="sidemenu">
+      <li><a href="#header">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+    </ul>
+    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+  </nav>
+  <nav>
+    <img src="logo.png" class="logo">
+    <ul id="sidemenu">
+      <li><a href="#header">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+    </ul>
+    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+  </nav>
+  <div>
+    <div class="header-text">
+      <p>Student</p>
+      <h1>Hi, I'm <span>Zac</span><br>From Millersville Uiversity</h1>
+    </div>
+  </div>
+</div>
+  <!-- -------------------about------------------- -->
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="about-col-1">
+        <img src="me.jpg">
+      </div>
+      <div class="about-col-2">
+        <h1 class="sub-title">About Me</h1>
+        <p>I am a Computer Science major at Millersville University with a minor in Mathematics. This portfolio shows off some of the projects I have completed in high school and college. The purpose of this portfolio is to showcase my achievements and reflect upon the things that I have learned in class and how all the information builds upon each other to help me be an all around learned student.</p>
+        <div class="tab-titles">
+          <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+          <p class="tab-links" onclick="opentab('education')">Education</p>
+          <p class="tab-links" onclick="opentab('experience')">Experience</p>
+        </div>
+        <div class="tab-contents active-tab" id="skills">
+          <ul>
+            <li><span>Web Development</span><br>Skilled in HTML, CSS and Javascript</li>
+            <li><span>Programming</span><br>Skilled in Java, C++, Python and R</li>
+            <li><span>Data Science</span><br>Skilled in BigQuery and spreadsheets</li>
+          </ul>
+        </div>
+        <div class="tab-contents" id="education">
+          <ul>
+            <li><span>Millersville University</span><br>Current GPA: 4.0/4.0</li>
+            <li><span>Clubs</span><br>Vice President of the Technology Career Network<br>Member of Coding Club</li>
+          </ul>
+        </div>
+        <div class="tab-contents" id="experience">
+          <ul>
+            <li><span>None</span><br>No professional experience at this point in time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-------------------Work-------------------->
+<div id="portfolio">
+  <div class="container">
+    <h1 class="sub-title">My Work</h1>
+    <div class="work-list">
+      <div class="work">
+        <img src="w1.png">
+        <div class="layer">
+          <h3>Restaurant website</h3>
+          <p>Created a website to show off programming projects using HTML, CSS, and Javascript.</p>
+          <a href="https://resttemp.zacariatawfick.repl.co/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="w2.png">
+         <div class="layer">
+          <h3>Shrek website</h3>
+          <p>This is a website for Shrek that I created as a final project for computer science in high school.</p>
+          <a href="https://shrek.zacariatawfick.repl.co/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="w3.png">
+         <div class="layer">
+          <h3>DAV</h3>
+          <p>This is an application that visualizes how dijkstra's algorithm works.</p>
+          <a href="https://replit.com/@ZacariaTawfick/DAV#main.py" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+    </div>
+    <a href="https://github.com/ZikoGotGame?tab=repositories" target="_blank" class="btn">See more</a>
+  </div>
+</div>
+
+  <!---------------Contact--------------->
+
+  <div id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="contact-left">
+          <h1 class="sub-title">Contact Me</h1>
+          <p><i class="fa-solid fa-paper-plane"></i> zacariatawfick@gmail.com</p>
+          <p><i class="fa-solid fa-phone"></i> (223) 280-9686</p>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/zac-tawfick-638ab0277/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/ZikoGotGame" target="_blank"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+        <div class="contact-right">
+          <form name="submit-to-google-sheet" action="https://sheetdb.io/api/v1/dezwj75to9uuu" method="POST" id="sheetdb-form">
+            <input type="text" name="data[Name]" placeholder="Your Name" required>
+            <input type="email" name="data[Email]" placeholder="Your Email" required>
+            <textarea name="data[Message]" rows="6" placeholder="Your Message"></textarea>
+            <button type="submit" class="btn btn2">Submit</button>
+          </form>
+          <span id="msg"></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      Website by Zac Tawfick
+    </div>
+  </div>
+  
+  <script src="script.js">
+    
+  </script>
+</body>
+
+</html>
