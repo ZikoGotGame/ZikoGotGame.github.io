@@ -183,7 +183,7 @@ nav ul li a:hover::after{
 
 .work-list{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 40px;
   margin-top: 50px;
 }
@@ -220,20 +220,25 @@ nav ul li a:hover::after{
   transition: height 0.5s;
 }
 
+.layer p{
+  font-size: 1em;
+}
+
 .layer h3{
-  font-weight: 500;
-  margin-bottom: 40px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  font-size: 1.5em;
 }
 
 .layer a{
   margin-top: 20px;
   text-decoration: none;
   color: #865DFF;
-  font-size: 18px;
+  font-size: 1.25rem;
   line-height: 60px;
   background: #DDDDDD;
-  width: 60px;
-  height: 60px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   text-align: center;
 }
