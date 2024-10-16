@@ -183,7 +183,7 @@ nav ul li a:hover::after{
 
 .work-list{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 40px;
   margin-top: 50px;
 }
@@ -221,13 +221,13 @@ nav ul li a:hover::after{
 }
 
 .layer p{
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .layer h3{
   font-weight: bold;
   margin-bottom: 2rem;
-  font-size: 1.5em;
+  font-size: 1.25rem;
 }
 
 .layer a{
@@ -355,6 +355,9 @@ nav .fa-solid{
     margin-top: 100%;
     font-size: 16px;
   }
+  .layer p{
+    font-size: 14px;
+  }
   nav{
     padding: 0 50px;
   }
@@ -448,8 +451,8 @@ nav .fa-solid{
   margin-top: 10px;
   font-size: 12px;
   line-height: 50px;
-  width: 50px;
-  height: 50px;
+  width: 2rem;
+  height: 2rem;
 }
 }
 
@@ -464,15 +467,24 @@ nav .fa-solid{
   color: white;
 }
 
-@media only screen and (max-width: 1300px){
+@media only screen and (max-width: 1550px){
   .layer h3{
   margin-bottom: 10px;
 }
+  .layer{
+    font-size: 1em;
+  }
   .layer a{
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 0.7rem;
   line-height: 50px;
-  width: 50px;
-  height: 50px;
+  width: 2.5rem;
+  height: 2.5rem;
 }
+}
+
+@media only screen and (max-width: 1300px){
+  .layer p{
+    font-size: 0.7em;
+  }
 }
