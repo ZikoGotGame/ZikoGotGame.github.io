@@ -167,7 +167,22 @@ nav ul li a:hover::after{
   color: #865DFF;
 }
 
-.tab-contents ul li a{
+.tab-contents ul li a {
+  color: #865DFF;
+  text-decoration: none;
+}
+
+.tab-contents ul li a:visited {
+  color: #865DFF;
+  text-decoration: none;
+}
+
+.tab-contents ul li a:hover {
+  color: #865DFF;
+  text-decoration: none;
+}
+
+.tab-contents ul li a:active {
   color: #865DFF;
   text-decoration: none;
 }
