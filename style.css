@@ -167,6 +167,11 @@ nav ul li a:hover::after{
   color: #865DFF;
 }
 
+.tab-contents ul li a{
+  color: #865DFF;
+  text-decoration: none;
+}
+
 .tab-contents{
   display: none;
 }
