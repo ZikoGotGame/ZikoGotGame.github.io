@@ -8,6 +8,7 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="icon" type="image/x-icon" href="lg.png">
   <script src="https://kit.fontawesome.com/cc71902da6.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -50,7 +51,9 @@
       </div>
       <div class="about-col-2">
         <h1 class="sub-title">About Me</h1>
-        <p>I am a Computer Science major at Millersville University with a minor in Mathematics. I have an interest in high-performance computing, embedded systems, and software engineering. I also enjoy competitive programming. This portfolio shows off some of the projects I have completed in class and on my own time. My skills are developing every day, and soon, the projects on this page will become more and more impressive!</p>
+        <p>I am a Computer Science major at Millersville University with a minor in Mathematics. I have an interest in high-performance computing, 
+          embedded systems, and graphics programming. I also enjoy competitive programming. This portfolio shows off some of the projects I 
+          have completed in class and on my own time. My skills are developing every day, and soon, the projects on this page will become more and more impressive!</p>
         <div class="tab-titles">
           <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
           <p class="tab-links" onclick="opentab('education')">Education</p>
@@ -58,21 +61,26 @@
         </div>
         <div class="tab-contents active-tab" id="skills">
           <ul>
-            <li><span>Web Development</span><be><ul><li>Experience with React, Google Maps API, PHP, HTML, CSS, and Javascript</li></ul></li>
-            <li><span>Programming</span><br><ul><li>Experience with Java, C++, C#, and x86 Assembly</li></ul></li>
+            <li><span>Web Development</span><be><ul><li>Experience with React, Google Maps API, PHP, and TypeScirpt</li></ul></li>
+            <li><span>Programming</span><br><ul><li>Experience with C/C++, C#, Python, Rust, x86 Assembly</li></ul></li>
             <li><span>Game Development</span><br><ul><li>Experience with Unity Engine</li></ul></li>
           </ul>
         </div>
         <div class="tab-contents" id="education">
           <ul>
             <li><span>Millersville University</span><be><ul><li>Current GPA: 4.0/4.0</li></ul></li>
-            <li><span>Relevant Courses</span><be><ul><li>Computer Architecture</li><li>Data Structures</li><li>Programming Languages</li><li>Computational Models</li></ul></li>
-            <li><span>Clubs</span><be><ul><li>Vice President of the Technology Career Network</li><li>Member of Coding Club</li><li>Member of Millersville Robotics</li></ul></li>
+            <li><span>Relevant Courses</span><be><ul><li>Computer Architecture</li><li>Data Structures</li><li>Operating Systems</li><li>Software Engineering</li></ul></li>
+            <li><span>Clubs</span><be><ul><li>President of the Technology Career Network</li><li>Member of Coding Club</li><li>Member of Millersville Robotics</li></ul></li>
           </ul>
         </div>
         <div class="tab-contents" id="experience">
           <ul>
-            <li><span>Full Stack Developer</span><be><ul><li>Worked on the <a href="https://natureatlas.org/biota/earth/" target="_blank">Nature Atlas Herbarium</a> interactive database. Fixed bugs and implemented useful features using PHP, Javascript, Google Maps API, HTML, and CSS. 
+            <li><span>Software Developer Intern</span><be><ul><li>Interned at Gateway Ticketing Systems for a summer where I developed a robust desktop application in C# and .NET for configuring and managing Windows Services,
+              collaborating with a team of interns to deliver scalable, maintainable back-end functionality focused on
+              performance and reliability. Optimized back-end logic for efficiency and scalability, implementing clean object-oriented patterns to improve
+              reliability and streamline service interactions. Redesigned a large Playwright test suite in TypeScript by introducing a modular API Client class, enhancing
+              code maintainability and enforcing strict type safety through comprehensive type annotations.</li></ul></li>
+            <li><span>Full Stack Developer Intern</span><be><ul><li>Worked on the <a href="https://natureatlas.org/biota/earth/" target="_blank">Nature Atlas Herbarium</a> interactive database. Fixed bugs and implemented useful features using PHP, Javascript, Google Maps API, HTML, and CSS. 
               Enhanced the observation upload process by enabling users to submit multiple observation forms simultaneously, resulting in improved robustness, efficiency, and increased user engagement.</li></ul></li>
           </ul>
         </div>
@@ -87,18 +95,18 @@
     <h1 class="sub-title">My Work</h1>
     <div class="work-list">
       <div class="work">
-        <img src="w1.png">
+        <img src="w1.jpg">
         <div class="layer">
-          <h3>Restaurant website</h3>
-          <p>Created a website to show off programming projects using HTML, CSS, and Javascript.</p>
-          <a href="https://zikogotgame.github.io/Bulk-Bros-Restaurant/index.html" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <h3>Tiny Renderer</h3>
+          <p>This is a simple 3D rasterizer written in C++. It supports basic 3D rendering features such as rasterization, texture mapping, and shading.</p>
+          <a href="https://github.com/ZikoGotGame/TinyRenderer" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
       <div class="work">
         <img src="w2.png">
          <div class="layer">
-          <h3>Thrust</h3>
-          <p>This is a game that I created with Unity Engine and C#. You attempt to reach a landing pad without exploding!</p>
+          <h3>Project Boost</h3>
+          <p>This is 3D rocket game written in C# using Unity Engine. You attempt to reach a landing pad without exploding!</p>
           <a href="https://github.com/ZikoGotGame/Thrust" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
@@ -130,10 +138,10 @@
           </div>
         </div>
         <div class="contact-right">
-          <form name="submit-to-google-sheet" action="https://sheetdb.io/api/v1/dezwj75to9uuu" method="POST" id="sheetdb-form">
-            <input type="text" name="data[Name]" placeholder="Your Name" required>
-            <input type="email" name="data[Email]" placeholder="Your Email" required>
-            <textarea name="data[Message]" rows="6" placeholder="Your Message"></textarea>
+          <form id="sheetdb-form">
+            <input type="text" name="from_name" placeholder="Your Name" required>
+            <input type="email" name="reply_to" placeholder="Your Email" required>
+            <textarea name="message" rows="6" placeholder="Your Message"></textarea>
             <button type="submit" class="btn btn2">Submit</button>
           </form>
           <span id="msg"></span>
