@@ -29,11 +29,11 @@
 			<img
 				src="/me.jpg"
 				alt="Portrait of {profile.name}"
-				width="112"
-				height="112"
+				width="144"
+				height="144"
 				loading="lazy"
 				decoding="async"
-				class="size-28 shrink-0 border border-line object-cover"
+				class="size-36 shrink-0 border border-line object-cover"
 			/>
 			<div class="space-y-4 text-sm leading-relaxed text-muted">
 				{#each profile.about as paragraph, i (i)}
