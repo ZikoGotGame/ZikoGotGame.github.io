@@ -94,17 +94,21 @@ screenshot in `static/projects/`.
 
 ### Deploying: the site assumes it is served from the root
 
-Not yet deployed. Assets are referenced by absolute path — `/me.jpg` in `+page.svelte`, `/projects/*` in
-`projects.ts`, `/Zac_Tawfick_Resume.pdf` in `profile.ts` — which is correct only at a domain root.
+Deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main`: `npm ci` → `npm run build`
+→ `upload-pages-artifact` (path `build`) → `deploy-pages`. CI needs no Emscripten because
+`src/lib/wasm/fluid.js` is committed.
 
-Serving from a subdirectory (e.g. GitHub Pages for the `ZikoGotGame/portfolio` project repo, which lands at
-`/portfolio/`) breaks all of them. That requires setting `kit.paths.base`, routing those paths through `base`
+The site must be served from a domain root. Assets are referenced by absolute path — `/me.jpg` in
+`+page.svelte`, `/projects/*` in `projects.ts`, `/Zac_Tawfick_Resume.pdf` in `profile.ts`. That is why the repo
+is hosted as the **user site** (`ZikoGotGame/ZikoGotGame.github.io` → `https://zikogotgame.github.io/`) rather
+than a project repo: a project repo lands at `/portfolio/` and breaks all of them.
+
+Do not move it back to a subdirectory without also setting `kit.paths.base`, routing those paths through `base`
 from `$app/paths`, and re-enabling `svelte/no-navigation-without-resolve` — that rule exists specifically to
 catch this, and is only safe to leave off while the site is root-hosted.
 
-For GitHub Pages specifically, `static/.nojekyll` is mandatory (it now exists — keep it): Jekyll ignores underscore-prefixed directories
-and SvelteKit emits everything into `_app/`, so without it every script and stylesheet 404s. CI needs no
-Emscripten because `src/lib/wasm/fluid.js` is committed.
+`static/.nojekyll` is mandatory (it exists — keep it): Jekyll ignores underscore-prefixed directories and
+SvelteKit emits everything into `_app/`, so without it every script and stylesheet 404s.
 
 ## Verifying solver changes without a browser
 
