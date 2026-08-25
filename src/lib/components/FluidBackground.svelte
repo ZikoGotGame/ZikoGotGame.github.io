@@ -23,6 +23,11 @@
 		let disposed = false;
 		let mod: FluidModule | null = null;
 
+		// Global time scale. Drives both the solver's dt and the emitter orbit rate,
+		// which are otherwise independent -- the orbit runs off wall-clock time, so
+		// slowing only the solver leaves the sources racing around a sluggish fluid.
+		const SPEED = 0.6;
+
 		// Dye palette, sampled per splat so the trail shifts through teal->blue.
 		const hues: [number, number, number][] = [
 			[0.06, 0.62, 0.72],
@@ -94,11 +99,13 @@
 
 		function resize() {
 			if (!canvas) return;
-			// The sim output is only `n` px across and gets scaled up anyway, so
-			// there is no reason to back the canvas at full device pixel ratio.
-			const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-			canvas.width = Math.round(window.innerWidth * dpr * 0.5);
-			canvas.height = Math.round(window.innerHeight * dpr * 0.5);
+			// Back the canvas 1:1 with physical pixels. The solver grid is still the
+			// real detail limit, but rendering below device resolution adds a second
+			// resample (compositor stretch) on top of the drawImage upscale, and that
+			// one is pure blur -- very visible on a 4K panel.
+			const dpr = Math.min(window.devicePixelRatio || 1, 2);
+			canvas.width = Math.round(window.innerWidth * dpr);
+			canvas.height = Math.round(window.innerHeight * dpr);
 
 			const scale = Math.max(canvas.width / grid, canvas.height / grid);
 			viewW = canvas.width / (grid * scale);
@@ -119,7 +126,7 @@
 			if (!mod) return;
 			for (let k = 0; k < 2; k++) {
 				const dir = k === 0 ? 1 : -1;
-				const phase = t * 0.00031 * dir + k * 2.4;
+				const phase = t * 0.00031 * SPEED * dir + k * 2.4;
 				const c = hues[k % hues.length];
 				mod._fluid_splat(
 					0.5 + 0.22 * Math.cos(phase),
@@ -167,7 +174,7 @@
 			pending = [];
 			ambient(now);
 
-			mod._fluid_step(dt);
+			mod._fluid_step(dt * SPEED);
 			paint();
 		}
 
