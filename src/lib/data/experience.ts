@@ -11,7 +11,6 @@ export const experience: Role[] = [
 	{
 		company: 'Netflix',
 		title: 'Software Engineer Intern',
-		team: 'JVM Ecosystem',
 		location: 'Los Gatos, CA',
 		period: 'May 2026 — August 2026',
 		bullets: [
